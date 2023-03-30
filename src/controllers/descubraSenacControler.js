@@ -1,4 +1,29 @@
-exports.cursos = (req,res) => {
+exports.obtercursos = (req,res) => {
+res.status(200).send("teste1");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+exports.teste = (req,res) => {
 
 
     res.status(200).send("teste1");
@@ -9,26 +34,9 @@ exports.cursos = (req,res) => {
 }
 
 
-exports.obterperguntas = (req,res) => {
-
-
-    res.status(200).send("teste2");
 
 
 
-
-}
-
-
-exports.respostas = (req,res) => {
-
-
-
-    res.status(200).send("teste3");
-
-
-
-}
 
 
 
