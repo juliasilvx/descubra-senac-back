@@ -1,26 +1,17 @@
+const pgp = require('pg-promise')(/* options */)
+const db = pgp('postgres://admin:gVKgBBv0QpMZzLS7ZdY9PeCo2vXzplI4@dpg-cged7q284i25mv7opvv0-a.oregon-postgres.render.com/basemoedas_9bu4')
 
 
+exports.obtercursos = () => { 
 
-exports.connect = async function connect() {
-    if (global.connection)
-        return global.connection.connect();
 
-    const { Pool } = require('pg');
-    // conexao somente para estudos, base apagada após testes.
-    const pool = new Pool({
-        connectionString: 'postgres://admin:gVKgBBv0QpMZzLS7ZdY9PeCo2vXzplI4@dpg-cged7q284i25mv7opvv0-a.oregon-postgres.render.com/basemoedas_9bu4'
-    });
-
-    //apenas testando a conexão
-    const client = await pool.connect();
-    console.log("Criou pool de conexões no PostgreSQL!");
-
-    const res = await client.query('SELECT NOW()');
-    console.log(res.rows[0]);
-    client.release();
-
-    //guardando para usar sempre o mesmo
-    global.connection = pool;
-    return pool.connect();
-}
+    db.one('SELECT *FROM cursos_s', 123)
+      .then((data) => {
+        console.log('DATA:', data.value)
+        return data.value
+      })
+      .catch((error) => {
+        console.log('ERROR:', error)
+      })
+} 
 
