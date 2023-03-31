@@ -1,5 +1,5 @@
 const express = require('express');
-
+const conexaobd = require("../bin/conexaobd");
 // App
 const app = express();
 

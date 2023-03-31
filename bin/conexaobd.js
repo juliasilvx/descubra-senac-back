@@ -1,8 +1,12 @@
-async function connect() {
+
+
+
+exports.connect = async function connect() {
     if (global.connection)
         return global.connection.connect();
 
     const { Pool } = require('pg');
+    // conexao somente para estudos, base apagada após testes.
     const pool = new Pool({
         connectionString: 'postgres://admin:gVKgBBv0QpMZzLS7ZdY9PeCo2vXzplI4@dpg-cged7q284i25mv7opvv0-a.oregon-postgres.render.com/basemoedas_9bu4'
     });
